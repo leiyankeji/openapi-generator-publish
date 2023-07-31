@@ -34,5 +34,7 @@ runs:
       with:
         node-version: 16
         cache: 'npm'
-    - run: |
-      npx @openapitools/openapi-generator-cli generate -g ${{inputs.generator}} -i ${{inputs.input}} -o . --git-user-id ${{inputs.git-user-id}} --git-repo-id ${{inputs.git-repo-id}} -t ${{inputs.template}} --config ${{inputs.config}} -p npmVersion=1.20.0-test
+    - name: generator open api
+      run: npx @openapitools/openapi-generator-cli generate -g ${{inputs.generator}} -i ${{inputs.input}} -o . --git-user-id ${{inputs.git-user-id}} --git-repo-id ${{inputs.git-repo-id}} -t ${{inputs.template}} --config ${{inputs.config}} -p npmVersion=1.20.0-test
+    - name: publish
+      run: npm publish
