@@ -25,6 +25,9 @@ inputs:
   config:
     description: 'Config file used to define additional configuration parameters'
     required: true
+  additional-properties:
+    description: 'Provide a config object of additional properties'
+    required: false
 runs:
   using: "composite"
   steps:
@@ -36,7 +39,7 @@ runs:
         cache: 'npm'
     - name: generator open api
       shell: bash
-      run: npx @openapitools/openapi-generator-cli generate -g ${{inputs.generator}} -i ${{inputs.input}} -o ${{inputs.output}} --git-user-id ${{inputs.git-user-id}} --git-repo-id ${{inputs.git-repo-id}} -t ${{inputs.template}} --config ${{inputs.config}} -p npmVersion=1.20.0-test
+      run: npx @openapitools/openapi-generator-cli generate -g ${{inputs.generator}} -i ${{inputs.input}} -o ${{inputs.output}} --git-user-id ${{inputs.git-user-id}} --git-repo-id ${{inputs.git-repo-id}} -t ${{inputs.template}} --config ${{inputs.config}} -p ${{inputs.additional-properties}}
     - name: publish
       shell: bash
       run: npm install & npm publish
