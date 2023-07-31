@@ -41,5 +41,6 @@ runs:
       run: npx @openapitools/openapi-generator-cli generate -g ${{inputs.generator}} -i ${{inputs.input}} -o ${{inputs.output}} --git-user-id ${{inputs.git-user-id}} --git-repo-id ${{inputs.git-repo-id}} -t ${{inputs.template}} --config ${{inputs.config}}
     - name: publish
       shell: bash
-      run: npm install & npm publish
+      run: npm install
+      run: npm publish
       
