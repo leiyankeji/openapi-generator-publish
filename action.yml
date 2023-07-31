@@ -35,6 +35,8 @@ runs:
         node-version: 16
         cache: 'npm'
     - name: generator open api
+      shell: bash
       run: npx @openapitools/openapi-generator-cli generate -g ${{inputs.generator}} -i ${{inputs.input}} -o ${{inputs.output}} --git-user-id ${{inputs.git-user-id}} --git-repo-id ${{inputs.git-repo-id}} -t ${{inputs.template}} --config ${{inputs.config}} -p npmVersion=1.20.0-test
     - name: publish
+      shell: bash
       run: npm publish
