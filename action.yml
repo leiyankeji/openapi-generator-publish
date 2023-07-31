@@ -1,0 +1,27 @@
+name: 'openapi-generator-publish'
+description: 'openapi generator publish'
+author: 'tl'
+
+inputs:
+  generator:
+    description: 'The name of the generator to use'
+    required: true
+  input:
+    description: 'OpenAPI specification file to use as the source for generation'
+    required: true
+  output: 
+    description: 'The output directory of the generated code'
+    required: false
+    default: '.'
+  git-repo-id:
+    description: 'Git repository name'
+    required: true
+  git-user-id:
+    description: 'The owner of the Git repo'
+    required: true
+  template:
+    description: Directory of the templates used to generate code
+    required: true
+  config:
+    description: 'Config file used to define additional configuration parameters'
+    required: true
